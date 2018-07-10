@@ -10,7 +10,7 @@ ignoreText1 = "FiscalYear 2018"
 ignoreText2 = "Supplier Name (supplier number)"
 
 
-wb = load_workbook(filename='DSL.xlsx', read_only=True)
+wb = load_workbook(filename='DSLB.xlsx', read_only=True)
 ws = wb['Sheet1']
 
 for row in ws.rows:
@@ -48,7 +48,13 @@ def companyTotalResults(theCompanyName):
     tempCount = tempCount.replace(" results</div>", "")
     tempCount = tempCount.replace(",", "")
 
-    return int(tempCount)
+    result = 0
+    try:
+        result = int(tempCount)
+    except:
+        result = 0
+
+    return result
 
 
 
